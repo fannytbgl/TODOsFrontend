@@ -12,6 +12,7 @@
     </button>
   </div> -->
   
+  <ng-container class="todoList">  
   <table mat-table [dataSource]="todoList">
     <!-- Title Column -->
     <ng-container matColumnDef="title">
@@ -28,7 +29,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
+  </ng-container>
 
 <!-- <mat-card class="mat-card mat-elevation-z4" *ngFor="let todo of todoList">
     <mat-card-content>{{ todo.title }}</mat-card-content>
