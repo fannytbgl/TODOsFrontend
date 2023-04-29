@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
+import { HttpClientModule, HttpBackend,  HttpXhrBackend } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { MyInMemoryDataService } from './todos/service/my-in-memory-data.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoTableComponent } from './todos/components/todo-table/todo-table.component';
@@ -23,6 +27,8 @@ import { TransformPipe } from './shared/pipes/transform-pipe';
     TransformPipe
   ],
   imports: [
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(MyInMemoryDataService, { dataEncapsulation: false }),
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +41,7 @@ import { TransformPipe } from './shared/pipes/transform-pipe';
     MatTableModule,
     MatPaginatorModule
   ],
-  providers: [TransformPipe],
+  providers: [TransformPipe, { provide: HttpBackend, useClass: HttpXhrBackend }], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
