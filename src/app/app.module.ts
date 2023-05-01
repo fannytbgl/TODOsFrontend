@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
+import { HttpClientModule, HttpBackend,  HttpXhrBackend } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoTableComponent } from './todos/components/todo-table/todo-table.component';
@@ -23,6 +25,7 @@ import { TransformPipe } from './shared/pipes/transform-pipe';
     TransformPipe
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +38,7 @@ import { TransformPipe } from './shared/pipes/transform-pipe';
     MatTableModule,
     MatPaginatorModule
   ],
-  providers: [TransformPipe],
+  providers: [TransformPipe, { provide: HttpBackend, useClass: HttpXhrBackend }], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,5 +3,4 @@ export class TodoDto {
     public title: string = '';
     public statusType: string = '';
     public description: string = '';
-    public dateOfCreation: Date | undefined;
 }
