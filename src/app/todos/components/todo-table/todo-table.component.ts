@@ -34,12 +34,19 @@ export class TodoTableComponent implements OnInit{
     console.log(this.todos);
   }
 
+  onTodoClicked(todo: TodoDto) {
+    //this.router.navigate(['api/detail/', todo.id]);
+    //console.log(this.todo.id);
+    
+  }
+
   onTodoToggled(todo : TodoDto) {
     this.selection.toggle(todo);
     const selectedTodo = this.selection.selected;
-    selectedTodo.forEach( row => {
-      row.statusType = "Done";
-      //row.title = row.title.strike();
+    selectedTodo.forEach( todo => {
+      todo.statusType = "Done";
+      this.router.navigate(['api/todos/', todo.id]);
+      //todo.title = todo.title.strike();
     }
     )
     console.log(selectedTodo);

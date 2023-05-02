@@ -17,12 +17,14 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TransformPipe } from './shared/pipes/transform-pipe';
+import { TodoDetailComponent } from './todos/components/todo-detail/todo-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoTableComponent,
-    TransformPipe
+    TransformPipe,
+    TodoDetailComponent
   ],
   imports: [
     HttpClientModule,
