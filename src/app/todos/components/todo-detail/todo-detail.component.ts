@@ -35,7 +35,7 @@ export class TodoDetailComponent {
     }
 
     public onBackButton(): void {
-      this.router.navigate(['/', 'api']);
+      this.router.navigate(['']);
     }
 
   }

@@ -4,10 +4,6 @@ import { TodoTableComponent } from './todos/components/todo-table/todo-table.com
 import { TodoDetailComponent } from './todos/components/todo-detail/todo-detail.component';
 
 const routes: Routes = [
-  { 
-  path: 'api', 
-  component: TodoTableComponent 
-  },
   {
   path: 'api/todos/:id',
   component: TodoDetailComponent
