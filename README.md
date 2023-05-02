@@ -1,27 +1,47 @@
-# TODOsFrontend
+# TODOsFrontend : Commentaires
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+npm version : 8.19.2
+node version : 18.12.1
 
-## Development server
+## 1 List my TODOs
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Création d’un component qui affiche les tables de poe avec mat table
+Création d’un dto poe (Dto car à l’origine, devait se connecter au back java Spring Boot - à considérer comme une classe d’objet)
+Création d’un pipe pour remplacer les noms de data brutes dans le template côté client 
+Création d’un mocked backend pour gérer les listes : 
+https://medium.com/geekculture/setting-up-a-mock-backend-with-angular-13-applications-26a21788f7da
+Création d’un TODOService pour gérer les requêtes HTTP et communiquer avec le mocked backend : méthode getAllTodos()
 
-## Code scaffolding
+## 2 Change a TODO State
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Utilisation de Material UI <mat-checkbox>
+Utilisation de SelectionModel
+Changement de statut dans la méthode onTodoToggled (méthode strike à améliorer)
+Rajout d’un bouton pour trier les les todos en fonction de leurs statuts (marche mais ne s’affiche pas dans le template)
+###Solutions possibles 
+Implémenter Sort ou créer un observable.
+###Amélioration 
+Reset le statusType en décochant la checkbox
 
-## Build
+## 3 Detail a Todo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Création d’un composant Todo-Détail
+Création d’une méthode FindOneTodo pour récupérer un todo grâce à son id dans le todo-service et dans le mocked serveur
+Dans le détail Component.ts, implémentation de la logique permettant de récupérer le todo souhaité grâce à ActivatedRoute et Router
+Création des routes dans le router
+Création basique du template HTML
+###Unsolved
+p://localhost:3000/api/todos/id error 500 (le numéro représentant l’id de l’objet Todo est trouvé grâce à ActivatedRoute mais pas l’objet : à voir avec le mocked backend)
+Accès au Todo par la checkbox et non par la ligne
+###Amélioration
+Possibilité d'éditer la ToDo
 
-## Running unit tests
+## 4 Add a new ToDo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+POST http request (service, composant, router, backend)
+Création d’un form component avec envoie des données en JSON
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Services non fournis
+Implémentation de la quatrième UserStory
+Tests unitaires
