@@ -22,8 +22,8 @@ export class TodosService {
     // )
   }
 
-  getOneTodo() {
-
+  getOneTodo(id: number): Observable<any> {
+    return this.httpClient.get(`${this.base_url + this.tasks_endpoint}/${id}`) 
   }
 
   updateTodo() {
